@@ -2,9 +2,11 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { history } from '../_helpers';
-import { alertActions } from '../_actions';
-import { PrivateRoute } from '../_components';
+import { history } from '../../_helpers';
+import { alertActions } from '../../_actions';
+import { PrivateRoute } from '../../_components';
+
+import { Header } from '../Header';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
@@ -23,6 +25,10 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         return (
+            <div className="container-fluid">
+            <Router history={history}>
+                <Header/>
+            </Router>
             <div className="jumbotron">
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
@@ -38,6 +44,7 @@ class App extends React.Component {
                         </Router>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }
